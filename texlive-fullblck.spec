@@ -17,9 +17,6 @@ Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.source.t
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 Used with the letter documentclass to set the letter in a
@@ -32,7 +29,6 @@ fullblock style (everything at the left margin).
 #- source
 %doc %{_texmfdistdir}/source/latex/fullblck/fullblck.dtx
 %doc %{_texmfdistdir}/source/latex/fullblck/fullblck.dtx.asc
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -43,5 +39,3 @@ fullblock style (everything at the left margin).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
