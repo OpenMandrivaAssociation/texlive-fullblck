@@ -1,4 +1,4 @@
-# revision 15878
+# revision 25434
 # category Package
 # catalog-ctan /macros/latex/contrib/fullblck
 # catalog-date 2008-09-12 11:36:07 +0200
@@ -6,7 +6,7 @@
 # catalog-version 1.03
 Name:		texlive-fullblck
 Version:	1.03
-Release:	2
+Release:	3
 Summary:	Left-blocking for letter class
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fullblck
@@ -17,18 +17,29 @@ Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.source.t
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
+Requires(post):	texlive-kpathsea
 
 %description
 Used with the letter documentclass to set the letter in a
 fullblock style (everything at the left margin).
 
+%post
+    %{_sbindir}/texlive.post
+
+%postun
+    if [ $1 -eq 0 ]; then
+	%{_sbindir}/texlive.post
+    fi
+
 #-----------------------------------------------------------------------
 %files
+%{_texmfdistdir}/tex/latex/fullblck/fullblck.sty
 %doc %{_texmfdistdir}/doc/latex/fullblck/README
 %doc %{_texmfdistdir}/doc/latex/fullblck/fullblck.pdf
 #- source
 %doc %{_texmfdistdir}/source/latex/fullblck/fullblck.dtx
 %doc %{_texmfdistdir}/source/latex/fullblck/fullblck.dtx.asc
+%doc %{_texmfdistdir}/source/latex/fullblck/fullblck.ins
 
 #-----------------------------------------------------------------------
 %prep
@@ -38,4 +49,4 @@ fullblock style (everything at the left margin).
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar doc source %{buildroot}%{_texmfdistdir}
+cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
