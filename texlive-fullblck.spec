@@ -6,7 +6,7 @@
 # catalog-version 1.03
 Name:		texlive-fullblck
 Version:	1.03
-Release:	5
+Release:	6
 Summary:	Left-blocking for letter class
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fullblck
