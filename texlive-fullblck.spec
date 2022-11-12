@@ -1,19 +1,13 @@
-# revision 25434
-# category Package
-# catalog-ctan /macros/latex/contrib/fullblck
-# catalog-date 2008-09-12 11:36:07 +0200
-# catalog-license lppl
-# catalog-version 1.03
 Name:		texlive-fullblck
-Version:	1.03
-Release:	12
+Version:	25434
+Release:	1
 Summary:	Left-blocking for letter class
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fullblck
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fullblck.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -24,12 +18,12 @@ Used with the letter documentclass to set the letter in a
 fullblock style (everything at the left margin).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -43,28 +37,11 @@ fullblock style (everything at the left margin).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Feb 23 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.03-3
-+ Revision: 779462
-- Update to latest release.
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.03-2
-+ Revision: 752159
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.03-1
-+ Revision: 718513
-- texlive-fullblck
-- texlive-fullblck
-- texlive-fullblck
-- texlive-fullblck
-
