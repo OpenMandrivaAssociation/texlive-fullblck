@@ -1,6 +1,6 @@
 Name:		texlive-fullblck
 Version:	25434
-Release:	1
+Release:	2
 Summary:	Left-blocking for letter class
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fullblck
